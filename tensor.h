@@ -6,7 +6,7 @@ using std::vector;
 
 // the universal tensor
 template <typename T, long N>
-class tensor {
+class tensor: public vector<T> {
 private:
   vector<tensor<T, N-1>> vv;
 public:
@@ -28,6 +28,9 @@ public:
   }
   inline tensor<T, N-1>& operator[](long nr) {
     return vv[nr];
+  }
+  inline void push_back(tensor<T, N-1>& args) {
+    vv.push_back(args);
   }
   void print();
 };
