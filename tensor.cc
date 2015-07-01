@@ -30,4 +30,4 @@ void tensor<complex, 1>::print() {
 
 // instantation all needs
 template class tensor<double, 4>;
-template class tensor<complex, 3>;
+template class tensor<complex, 4>;
