@@ -22,37 +22,49 @@ int main(int argc, char* argv[]) {
   // tensor<double, 4> m({2, 2, 3, 2});
 
 
-  // tensor<complex, 3> m({2, 3, 4});
-  // for (long i = 0; i < 2; i ++) {
-  //   for (long j = 0; j < 3; j ++) {
-  //     for (long k = 0; k < 4; k ++) {
-  //       printf("(i,j,k)=(%ld,%ld,%ld)\t", i, j, k);
-  //       m[i][j][k] = 1000*i + 100*j + 10*k;
-  //       printf("(%f,%f)\t\n", real(m[i][j][k]), imag(m[i][j][k]));
-  //     }
-  //   }
-  // }
-
-  tensor<double, 2> m;
-  m.resize({1, 2});
-  for (long i = 0; i < 1; i ++) {
-    for (long j = 0; j < 2; j ++) {
-      printf("(i,j)=(%ld,%ld)\t", i, j);
-      m[i][j] = 1000*i + 100*j;
-      printf("%f\t\n", m[i][j]);
+  tensor<complex, 3> m({2, 3, 4});
+  for (long i = 0; i < 2; i ++) {
+    for (long j = 0; j < 3; j ++) {
+      for (long k = 0; k < 4; k ++) {
+        printf("(i,j,k)=(%ld,%ld,%ld)\t", i, j, k);
+        m[i][j][k] = 1000*i + 100*j + 10*k;
+        printf("(%f,%f)\t\n", real(m[i][j][k]), imag(m[i][j][k]));
+      }
     }
   }
 
-  tensor<double, 1> m1(2);
-  for (long i = 0; i < 2; i ++) {
-      printf("(i)=(%ld)\t", i);
-      m1[i] = i;
-      printf("%f\t\n", m1[i]);
-  }
+  // tensor<double, 2> m;
+  // m.resize({1, 2});
+  // for (long i = 0; i < 1; i ++) {
+  //   for (long j = 0; j < 2; j ++) {
+  //     printf("(i,j)=(%ld,%ld)\t", i, j);
+  //     m[i][j] = 1000*i + 100*j;
+  //     printf("%f\t\n", m[i][j]);
+  //   }
+  // }
 
-  m.push_back(m1);
+  // tensor<double, 1> m1(2);
+  // for (long i = 0; i < 2; i ++) {
+  //     printf("(i)=(%ld)\t", i);
+  //     m1[i] = i;
+  //     printf("%f\t\n", m1[i]);
+  // }
+
+  // m.push_back(m1);
 
   m.print();
+  // vector<long> s;
+  // m.size(s);
+  // printf("size = %ld\n", s.size());
+  // for (auto v: s) {
+  //   printf("%ld\t", v);
+  // }
+  printf("Size of tensor:\n");
+  vector<long> s = m.size();
+  for (auto v: s) {
+    printf("%ld\t", v);
+  }
+  printf("\n");
 
   return 0;
 }
