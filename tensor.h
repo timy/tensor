@@ -1,15 +1,15 @@
-#ifndef MATRIX_H_
-#define MATRIX_H_
+#ifndef TENSOR_H_
+#define TENSOR_H_
 
 #include <vector>
 using std::vector;
 
 // Nth-rank tensor
 template <typename T, long N>
-  class tensor: public vector<T> {
- private:
+class tensor: public vector<T> {
+private:
   vector<tensor<T, N-1>> vt;
- public:
+public:
   tensor<T, N>() = default;
   tensor<T, N>(const vector<long>& args) {
     vt.resize(args[0]);
@@ -55,7 +55,7 @@ template <typename T, long N>
 // 1st-rank tensor, just a wrapper for vector
 template <typename T>
 class tensor<T, 1>: public vector<T> {
- public:
+public:
   tensor<T, 1>(): vector<T>() {}
   tensor<T, 1>(long n): vector<T>(n) {}
   tensor<T, 1>(const vector<long>& args): vector<T>(args[0]) {}
